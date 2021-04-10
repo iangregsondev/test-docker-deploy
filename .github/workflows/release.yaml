@@ -76,10 +76,10 @@ jobs:
           echo ${#TEST_SECRET}
           echo ${#TEST_SECRETA}
 
-      - name: Update repo description
-        uses: peter-evans/dockerhub-description@v2
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          repository: ${{ secrets.DOCKER_IMAGE }}
-          short-description: ${{ github.event.repository.description }}
+#      - name: Update repo description
+#        uses: peter-evans/dockerhub-description@v2
+#        with:
+#          username: ${{ secrets.DOCKERHUB_USERNAME }}
+#          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+#          repository: ${{ secrets.DOCKER_IMAGE }}
+#          short-description: ${{ github.event.repository.description }}
