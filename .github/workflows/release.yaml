@@ -49,6 +49,7 @@ jobs:
           context: .
           push: true
           tags: ${{ steps.prep.outputs.tags }}
+          labels: its-me, its-not-me
 
       - name: Update repo description
         uses: peter-evans/dockerhub-description@v2
