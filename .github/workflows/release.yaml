@@ -14,6 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+
 #      - name: Prepare
 #        id: prep
 #        run: |
@@ -71,15 +72,15 @@ jobs:
       - name: Test
         env:
           TEST_SECRET: ${{ secrets.DOCKERHUB_USERNAME }}
-          TEST_SECRETA: ${{ secrets.DOCKER_IMAGE }}
+          TEST_SECRETA: ${{ secrets.IANTST }}
         run: |
           echo ${#TEST_SECRET}
           echo ${#TEST_SECRETA}
 
-#      - name: Update repo description
-#        uses: peter-evans/dockerhub-description@v2
-#        with:
-#          username: ${{ secrets.DOCKERHUB_USERNAME }}
-#          password: ${{ secrets.DOCKERHUB_PASSWORD }}
-#          repository: ${{ secrets.DOCKER_IMAGE }}
-#          short-description: ${{ github.event.repository.description }}
+      - name: Update repo description
+        uses: peter-evans/dockerhub-description@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          repository: ${{ secrets.IANTST }}
+          short-description: ${{ github.event.repository.description }}
