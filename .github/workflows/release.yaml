@@ -38,7 +38,7 @@ jobs:
         uses: crazy-max/ghaction-docker-meta@v2
         with:
           # list of Docker images to use as base name for tags
-          images: ${{ secrets.IANTST }}
+          images: ${{ secrets.DOCKER_IMAGE }}
           # generate Docker tags based on the following events/attributes
           tags: |
             type=ref,event=branch
@@ -70,19 +70,11 @@ jobs:
 #          tags: ${{ steps.prep.outputs.tags }}
 #          labels: its-me, its-not-me
 
-      - name: Test
-        env:
-          TEST_SECRET: ${{ secrets.DOCKERHUB_USERNAME }}
-          TEST_SECRETA: ${{ secrets.IANTST }}
-        run: |
-          echo ${#TEST_SECRET}
-          echo ${#TEST_SECRETA}
-
       - name: Update repo description
         uses: peter-evans/dockerhub-description@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          repository: ${{ secrets.IANTST }}
+          repository: ${{ secrets.DOCKER_IMAGE }}
           #repository: iangregsondev/sometest
           short-description: ${{ github.event.repository.description }}
