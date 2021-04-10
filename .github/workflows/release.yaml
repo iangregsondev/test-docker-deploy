@@ -82,5 +82,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          repository: ${{ secrets.IANTST }}
+          #repository: ${{ secrets.IANTST }}
+          repository: iangregsondev/sometest
           short-description: ${{ github.event.repository.description }}
