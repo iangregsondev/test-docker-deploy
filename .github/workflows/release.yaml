@@ -68,6 +68,14 @@ jobs:
 #          tags: ${{ steps.prep.outputs.tags }}
 #          labels: its-me, its-not-me
 
+      - name: Test
+        env:
+          TEST_SECRET: ${{ secrets.DOCKERHUB_USERNAME }}
+          TEST_SECRETA: ${{ secrets.DOCKER_IMAGE }}
+        run: |
+          echo ${#TEST_SECRET}
+          echo ${#TEST_SECRETA}
+
       - name: Update repo description
         uses: peter-evans/dockerhub-description@v2
         with:
